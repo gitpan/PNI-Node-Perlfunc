@@ -1,6 +1,6 @@
 package PNI::Node::Perlfunc::Sqrt;
 use strict;
-use base 'PNI::Node';
+use parent 'PNI::Node';
 
 sub init {
     my $node = shift;
@@ -36,14 +36,11 @@ sub task {
 
 PNI::Node::Perlfunc::Sqrt - PNI node wrapping the Perl C<sqrt> function
 
-
-
-
 =head1 INPUTS
 
 =over 4
 
-=item in
+=item C<in>
 
 =back
 
@@ -51,8 +48,9 @@ PNI::Node::Perlfunc::Sqrt - PNI node wrapping the Perl C<sqrt> function
 
 =over 4
 
-=item out
+=item C<out>
 
 =back
 
 =cut
+

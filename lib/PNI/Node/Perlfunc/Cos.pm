@@ -1,6 +1,6 @@
 package PNI::Node::Perlfunc::Cos;
 use strict;
-use base 'PNI::Node';
+use parent 'PNI::Node';
 
 sub init {
     my $node = shift;
@@ -30,14 +30,12 @@ sub task {
     return 1;
 }
 
-1;
+1
+__END__
 
 =head1 NAME
 
 PNI::Node::Perlfunc::Cos - PNI node wrapping the Perl C<cos> function
-
-
-
 
 =head1 INPUTS
 
@@ -56,3 +54,4 @@ PNI::Node::Perlfunc::Cos - PNI node wrapping the Perl C<cos> function
 =back
 
 =cut
+

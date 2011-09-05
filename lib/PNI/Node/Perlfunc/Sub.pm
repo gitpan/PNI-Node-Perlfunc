@@ -1,6 +1,6 @@
 package PNI::Node::Perlfunc::Sub;
 use strict;
-use base 'PNI::Node';
+use parent 'PNI::Node';
 
 sub init {
     my $node = shift;
@@ -27,12 +27,12 @@ sub task {
 
     my $error = $node->get_output('error');
 
-    # nothing to do if do_eval flag is not on
+    # Nothing to do if do_eval flag is not on.
     return 1 unless $do_eval->get_data;
 
     return 1 if $in_rows->is_undef;
 
-    # reset error output
+    # Reset error output.
     $error->set_data(undef);
 
     my $code_ref;
@@ -50,7 +50,7 @@ sub task {
     if ( $error->is_undef ) {
         $code->set_data($code_ref);
 
-        # reset the do_eval flag
+        # Reset the do_eval flag.
         $do_eval->set_data(0);
     }
     else {
@@ -65,9 +65,6 @@ sub task {
 =head1 NAME
 
 PNI::Node::Perlfunc::Sub - PNI node wrapping the Perl C<sub> function
-
-
-
 
 =head1 INPUTS
 
@@ -90,3 +87,4 @@ PNI::Node::Perlfunc::Sub - PNI node wrapping the Perl C<sub> function
 =back
 
 =cut
+

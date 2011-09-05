@@ -1,8 +1,12 @@
 use ExtUtils::MakeMaker;
 
+$collection = 'Perlfunc';
+$module     = "lib/PNI/Node/$collection.pm";
+
 WriteMakefile
-  ABSTRACT_FROM => 'lib/PNI/Node/Perlfunc.pm',
+  ABSTRACT_FROM => $module,
   AUTHOR        => 'G. Casati <fibo@cpan.org>',
-  NAME          => 'PNI-Node-Perlfunc',
-  PREREQ_PM     => { PNI => '0.16', },
-  VERSION_FROM  => 'lib/PNI/Node/Perlfunc.pm',
+  NAME          => "PNI-Node-$collection",
+  PREREQ_PM     => { PNI => '0.19', },
+  VERSION_FROM  => $module,
+

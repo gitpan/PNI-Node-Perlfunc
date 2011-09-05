@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               PNI-Node-Perlfunc
-version:            0.01
+version:            0.02
 abstract:           PNI node collection
 author:
     - G. Casati <fibo@cpan.org>
@@ -11,7 +11,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    PNI:  0.16
+    PNI:  0.19
 no_index:
     directory:
         - t

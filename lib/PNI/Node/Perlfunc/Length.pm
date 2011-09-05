@@ -1,6 +1,6 @@
 package PNI::Node::Perlfunc::Length;
 use strict;
-use base 'PNI::Node';
+use parent 'PNI::Node';
 
 sub init {
     my $node = shift;
