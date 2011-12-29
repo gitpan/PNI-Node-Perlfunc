@@ -1,58 +1,23 @@
 package PNI::Node::Perlfunc::Sin;
-use strict;
-use parent 'PNI::Node';
+use PNI::Node::Mo;
+extends 'PNI::Node';
 
-sub init {
-    my $node = shift;
+sub BUILD {
+    my $self = shift;
+    $self->label('sin');
 
-    my $in = $node->add_input('in');
-
-    my $out = $node->add_output('out');
-
-    return 1;
+    $self->in;
+    $self->out;
 }
 
 sub task {
-    my $node = shift;
+    my $self = shift;
+    my $in   = $self->in;
+    my $out  = $self->out;
 
-    my $in = $node->get_input('in');
+    $in->is_number or return;
 
-    my $out = $node->get_output('out');
-
-    my $result;
-
-    if ( $in->is_number ) {
-        $result = sin $in->get_data;
-    }
-
-    $out->set_data($result);
-
-    return 1;
+    $out->data( sin( $in->data ) );
 }
 
-1;
-
-=head1 NAME
-
-PNI::Node::Perlfunc::Sin - PNI node wrapping the Perl C<sin> function
-
-
-
-
-=head1 INPUTS
-
-=over 4
-
-=item in
-
-=back
-
-=head1 OUTPUTS
-
-=over 4
-
-=item out
-
-=back
-
-=cut
+1

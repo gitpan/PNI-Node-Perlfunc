@@ -1,33 +1,20 @@
 Changes
 lib/PNI/Node/Perlfunc.pm
-lib/PNI/Node/Perlfunc/Chomp.pm
 lib/PNI/Node/Perlfunc/Cos.pm
 lib/PNI/Node/Perlfunc/Exp.pm
 lib/PNI/Node/Perlfunc/Int.pm
-lib/PNI/Node/Perlfunc/Length.pm
 lib/PNI/Node/Perlfunc/Log.pm
-lib/PNI/Node/Perlfunc/Print.pm
-lib/PNI/Node/Perlfunc/Ref.pm
 lib/PNI/Node/Perlfunc/Sin.pm
-lib/PNI/Node/Perlfunc/Sleep.pm
 lib/PNI/Node/Perlfunc/Sqrt.pm
-lib/PNI/Node/Perlfunc/Sub.pm
 Makefile.PL
 MANIFEST			This list of files
 README
-t/_node-perlfunc-chomp.t
-t/_node-perlfunc-cos.t
-t/_node-perlfunc-exp.t
-t/_node-perlfunc-int.t
-t/_node-perlfunc-length.t
-t/_node-perlfunc-log.t
-t/_node-perlfunc-print.t
-t/_node-perlfunc-ref.t
-t/_node-perlfunc-sin.t
-t/_node-perlfunc-sleep.t
-t/_node-perlfunc-sqrt.t
-t/_node-perlfunc-sub.t
-t/all_pod_files_ok.t
-t/every_node_has_a_test.t
-t/PNI_synopsis.t
-META.yml                                 Module meta-data (added by MakeMaker)
+t/__classes.t
+t/_cos.t
+t/_exp.t
+t/_int.t
+t/_log.t
+t/_sin.t
+t/_sqrt.t
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)

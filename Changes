@@ -1,7 +1,5 @@
-Revision history for Perl extension PNI::Node::Perlfunc.
+Revision history for Perlfunc node collection.
 
-0.02  2011-09-xx
-    - use parent instead of use base
+0.04.0  2011-12-xx
+    - Moooved to Mo, and to github (:
 
-0.01  2011-07-18
-    - first version

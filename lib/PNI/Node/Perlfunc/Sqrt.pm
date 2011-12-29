@@ -1,56 +1,24 @@
 package PNI::Node::Perlfunc::Sqrt;
-use strict;
-use parent 'PNI::Node';
+use PNI::Node::Mo;
+extends 'PNI::Node';
 
-sub init {
-    my $node = shift;
+sub BUILD {
+    my $self = shift;
+    $self->label('sqrt');
 
-    my $in = $node->add_input('in');
-
-    my $out = $node->add_output('out');
-
-    return 1;
+    $self->in;
+    $self->out;
 }
 
 sub task {
-    my $node = shift;
+    my $self = shift;
+    my $in   = $self->in;
+    my $out  = $self->out;
 
-    my $in = $node->get_input('in');
+    $in->is_number or return;
+    ( $in->data >= 0 ) or return;
 
-    my $out = $node->get_output('out');
-
-    my $result;
-
-    if ( $in->is_number and $in->get_data >= 0 ) {
-        $result = sqrt $in->get_data;
-    }
-
-    $out->set_data($result);
-
-    return 1;
+    $out->data( sqrt( $in->data ) );
 }
 
-1;
-
-=head1 NAME
-
-PNI::Node::Perlfunc::Sqrt - PNI node wrapping the Perl C<sqrt> function
-
-=head1 INPUTS
-
-=over 4
-
-=item C<in>
-
-=back
-
-=head1 OUTPUTS
-
-=over 4
-
-=item C<out>
-
-=back
-
-=cut
-
+1
