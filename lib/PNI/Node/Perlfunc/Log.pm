@@ -15,8 +15,8 @@ sub task {
     my $in   = $self->in;
     my $out  = $self->out;
 
-    $in->is_number or return;
-    ( $in->data >= 0 ) or return;
+    $in->is_number or return $self->off;
+    ( $in->data >= 0 ) or return $self->off;
 
     $out->data( log( $in->data ) );
 }

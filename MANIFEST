@@ -3,9 +3,16 @@ lib/PNI/Node/Perlfunc.pm
 lib/PNI/Node/Perlfunc/Cos.pm
 lib/PNI/Node/Perlfunc/Exp.pm
 lib/PNI/Node/Perlfunc/Int.pm
+lib/PNI/Node/Perlfunc/Keys.pm
+lib/PNI/Node/Perlfunc/Lc.pm
+lib/PNI/Node/Perlfunc/Lcfirst.pm
+lib/PNI/Node/Perlfunc/Length.pm
 lib/PNI/Node/Perlfunc/Log.pm
 lib/PNI/Node/Perlfunc/Sin.pm
 lib/PNI/Node/Perlfunc/Sqrt.pm
+lib/PNI/Node/Perlfunc/Uc.pm
+lib/PNI/Node/Perlfunc/Ucfirst.pm
+lib/PNI/Node/Perlfunc/Values.pm
 Makefile.PL
 MANIFEST			This list of files
 README
@@ -13,8 +20,15 @@ t/__classes.t
 t/_cos.t
 t/_exp.t
 t/_int.t
+t/_keys.t
+t/_lc.t
+t/_lcfirst.t
+t/_length.t
 t/_log.t
 t/_sin.t
 t/_sqrt.t
+t/_uc.t
+t/_ucfirst.t
+t/_values.t
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)

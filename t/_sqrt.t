@@ -1,28 +1,34 @@
 use strict;
 use warnings;
-use Test::More tests => 5;
+use Test::More tests => 6;
 
 use PNI::Node::Perlfunc::Sqrt;
 
-my $sqrt = PNI::Node::Perlfunc::Sqrt->new;
+my $node = PNI::Node::Perlfunc::Sqrt->new;
 
-isa_ok $sqrt, 'PNI::Node::Perlfunc::Sqrt';
-is $sqrt->label, 'sqrt', 'label';
+isa_ok $node, 'PNI::Node::Perlfunc::Sqrt';
+is $node->label, 'sqrt', 'label';
 
-my $in  = $sqrt->in;
-my $out = $sqrt->out;
+my $in  = $node->in;
+my $out = $node->out;
 
-$sqrt->task;
+$node->task;
 is $out->data, undef, 'default task';
 
 my $a = rand(100);
 my $b = sqrt($a);
 
-$sqrt->in->data($a);
-$sqrt->task;
-is $b, $sqrt->out->data, 'b = sqrt( a )';
+$node->in->data($a);
+$node->task;
+is $node->out->data, $b, 'out = sqrt( in )';
 
-$sqrt->in->data(-1);
-is $sqrt->task, undef, ' sqrt( -1 )';
+$node->on;
+$node->in->data('foo');
+$node->task;
+ok $node->is_off, 'node is off if not feeded with a number';
 
+$node->on;
+$node->in->data(-1);
+$node->task;
+ok $node->is_off, 'node is off if not feeded with a positive number';
 

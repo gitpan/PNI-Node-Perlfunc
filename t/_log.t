@@ -1,27 +1,34 @@
 use strict;
 use warnings;
-use Test::More tests => 5;
+use Test::More tests => 6;
 
 use PNI::Node::Perlfunc::Log;
 
-my $log = PNI::Node::Perlfunc::Log->new;
+my $node = PNI::Node::Perlfunc::Log->new;
 
-isa_ok $log, 'PNI::Node::Perlfunc::Log';
-is $log->label, 'log', 'label';
+isa_ok $node, 'PNI::Node::Perlfunc::Log';
+is $node->label, 'log', 'label';
 
-my $in  = $log->in;
-my $out = $log->out;
+my $in  = $node->in;
+my $out = $node->out;
 
-$log->task;
+$node->task;
 is $out->data, undef, 'default task';
 
 my $a = rand(100);
 my $b = log($a);
 
-$log->in->data($a);
-$log->task;
-is $b, $log->out->data, 'b = log( a )';
+$node->in->data($a);
+$node->task;
+is $node->out->data, $b, 'out = log( in )';
 
-$log->in->data(-1);
-is $log->task, undef, ' log( -1 )';
+$node->on;
+$node->in->data('foo');
+$node->task;
+ok $node->is_off, 'node is off if not feeded with a number';
+
+$node->on;
+$node->in->data(-1);
+$node->task;
+ok $node->is_off, 'node is off if not feeded with a positive number';
 

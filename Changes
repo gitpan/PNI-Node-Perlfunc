@@ -1,5 +1,10 @@
 Revision history for Perlfunc node collection.
 
-0.04.0  2011-12-xx
+0.05.0  2012-01-03
+    - Added uc,lc,ucfirst,lcfirst
+    - Added keys,values
+    - Added length
+
+0.04.0  2011-12-28
     - Moooved to Mo, and to github (:
 

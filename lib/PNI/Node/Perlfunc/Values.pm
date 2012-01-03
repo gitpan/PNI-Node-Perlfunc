@@ -1,10 +1,10 @@
-package PNI::Node::Perlfunc::Sqrt;
+package PNI::Node::Perlfunc::Values;
 use PNI::Node::Mo;
 extends 'PNI::Node';
 
 sub BUILD {
     my $self = shift;
-    $self->label('sqrt');
+    $self->label('values');
 
     $self->in;
     $self->out;
@@ -15,10 +15,12 @@ sub task {
     my $in   = $self->in;
     my $out  = $self->out;
 
-    $in->is_number or return $self->off;
-    ( $in->data >= 0 ) or return $self->off;
+    $in->is_hash or return $self->off;
 
-    $out->data( sqrt( $in->data ) );
+    my @values = values( $in->data );
+
+    $out->data( \@values );
 }
 
 1
+

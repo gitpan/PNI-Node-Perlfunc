@@ -1,6 +1,6 @@
 package PNI::Node::Perlfunc;
 
-our $VERSION = '0.04.0';
+our $VERSION = '0.05.0';
 
 1
 __END__

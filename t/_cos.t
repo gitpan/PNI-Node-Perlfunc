@@ -1,24 +1,29 @@
 use strict;
 use warnings;
-use Test::More tests => 4;
+use Test::More tests => 5;
 
 use PNI::Node::Perlfunc::Cos;
 
-my $cos = PNI::Node::Perlfunc::Cos->new;
+my $node = PNI::Node::Perlfunc::Cos->new;
 
-isa_ok $cos, 'PNI::Node::Perlfunc::Cos';
-is $cos->label, 'cos', 'label';
+isa_ok $node, 'PNI::Node::Perlfunc::Cos';
+is $node->label, 'cos', 'label';
 
-my $in  = $cos->in;
-my $out = $cos->out;
+my $in  = $node->in;
+my $out = $node->out;
 
-$cos->task;
+$node->task;
 is $out->data, undef, 'default task';
 
 my $a = rand(100);
 my $b = cos($a);
 
-$cos->in->data($a);
-$cos->task;
-is $b, $cos->out->data, 'b = cos( a )';
+$node->in->data($a);
+$node->task;
+is $node->out->data, $b, 'out = cos( in )';
+
+$node->on;
+$node->in->data('foo');
+$node->task;
+ok $node->is_off, 'node is off if not feeded with a number';
 

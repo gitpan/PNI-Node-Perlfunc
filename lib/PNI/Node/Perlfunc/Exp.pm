@@ -15,7 +15,7 @@ sub task {
     my $in   = $self->in;
     my $out  = $self->out;
 
-    $in->is_number or return;
+    $in->is_number or return $self->off;
 
     $out->data( exp( $in->data ) );
 }
